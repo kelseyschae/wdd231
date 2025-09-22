@@ -1,8 +1,15 @@
+:root {
+  --bs-black: #000;
+  --bs-grey-5: #666;
+}
+
+/* Global Header */
 .global-header {
   background-color: var(--bs-black);
   color: white;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   fill: white;
 }
 
@@ -13,6 +20,7 @@
   color: white;
   text-decoration: none;
 }
+
 .global-header .icon {
   width: 20px;
   height: 20px;
@@ -22,10 +30,12 @@
   display: flex;
   align-items: center;
 }
+
 .global-header__right .search-icon {
   padding: 0 1rem;
   margin-top: 6px;
 }
+
 .global-header__right button {
   background-color: transparent;
   border: none;
@@ -43,6 +53,7 @@
   display: grid;
   grid-template-columns: 1fr;
 }
+
 .hero-banner > img {
   width: 100%;
   height: 350px;
@@ -59,7 +70,7 @@
   display: flex;
   align-items: center;
   gap: 1em;
-  padding: 0.5em 1em;
+  padding: 1em;
 }
 
 .hero-banner__title {
@@ -71,8 +82,8 @@
   flex-direction: column;
   font-size: 0.8rem;
 }
-/* Park nav styling */
 
+/* Park nav styling */
 .park-nav > ul {
   list-style: none;
   padding-left: 0;
@@ -82,18 +93,31 @@
   background-color: var(--bs-black);
   font-size: 0.8rem;
 }
+
 .park-nav a {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 0.8em 2em;
+  color: white;
 }
+
 .park-nav a:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
+
 .park-nav svg {
   width: 24px;
   height: 24px;
+  fill: white;
 }
+
+/* General resets */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 
