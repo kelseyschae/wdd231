@@ -338,7 +338,7 @@ a:hover {
   margin: 0.5rem 0;
 }
 
-/* Utility styles */
+
 
 .visually-hidden {
   position: absolute;
@@ -355,5 +355,5 @@ a:hover {
 
 .disclaimer {
   padding: 0 1em;
-}
+} 
 
