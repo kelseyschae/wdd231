@@ -23,3 +23,4 @@ export default function setHeaderFooter(parkData) {
   setHeaderInfo(parkData);
   setFooter(parkData);
 }
+
