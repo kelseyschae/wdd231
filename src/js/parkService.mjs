@@ -201,7 +201,7 @@ const parkInfoLinks = [
 ];
 
 const baseUrl = "https://developer.nps.gov/api/v1/";
-const apiKey = EEOLNgnJfJmbn3vwJJR1GIOjCwLBlhZxL0fmkbLp;
+const apiKey = "EEOLNgnJfJmbn3vwJJR1GIOjCwLBlhZxL0fmkbLp";
 
 async function getJson(url) {
   const options = {
@@ -228,7 +228,7 @@ export function getInfoLinks(data) {
 }
 
 export async function getParkData() {
-  const parkData = await getJson("parks?parkCode=yell");
+  const parkData = await getJson("parks?parkCode=yell ");
   return parkData.data[0];
 }
 
@@ -241,3 +241,4 @@ export async function getParkVisitorCenters(code) {
   const parkData = await getJson(`visitorcenters?parkCode=${code}`);
   return parkData.data;
 }
+
