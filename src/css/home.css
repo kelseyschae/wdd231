@@ -29,3 +29,34 @@
       align-items: stretch;
     }
   }
+
+
+
+/* Adjust for wide screens */
+
+@media (min-width: 768px) {
+  .global-nav > h2,
+  .global-nav__list:first-of-type {
+    display: none;
+  }
+  .global-nav__submenu,
+  .global-nav__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+  }
+  .global-nav__split-button {
+    background-color: inherit;
+  }
+  .global-nav__split-button > button {
+    display: none;
+  }
+  .global-nav__submenu {
+    display: flex;
+    flex-direction: column;
+    max-height: fit-content;
+  }
+  .global-nav__submenu a{
+    padding: 0.625rem;
+  }
+} 
