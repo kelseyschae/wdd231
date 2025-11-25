@@ -46,7 +46,7 @@ function enableNavigation() {
       target.setAttribute("aria-expanded", true);
     } else {
       // if we closed it then set the aria-expanded attribute to false
-      target.setAttribute("aria-expanded", false);
+      target.setAttribute("aria-expanded", false); 
     }
 
     console.log("toggle");
