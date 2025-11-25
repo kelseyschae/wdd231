@@ -48,7 +48,8 @@ export function alertTemplate(alert) {
       alertType = "closure";
       break;
     default:
-      alertType = alert.category.toLowerCase();
+      alertType = alert.category.toLowerCase(); 
+      
   }
   return `<li class="alert">
   <svg class="icon" focusable="false" aria-hidden="true">
@@ -58,7 +59,7 @@ export function alertTemplate(alert) {
     <h3 class="alert-${alertType}">${alert.title}</h3>
     <p>${alert.description}</p>
   </div></li>`;
-}
+} 
 
 export function visitorCenterTemplate(center) {
   return `<li class="visitor-center">
@@ -66,8 +67,9 @@ export function visitorCenterTemplate(center) {
   <p>${center.description}</p>
   <p>${center.directionsInfo}</p>
   </li>`;
-}
+} 
 
 export function activityListTemplate(activities) {
   return activities.map((activity) => `<li>${activity.name}</li>`).join("");
 }
+
