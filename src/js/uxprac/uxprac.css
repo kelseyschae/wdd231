@@ -1,0 +1,111 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+
+  :root {
+    --bg: #fdf6e4;         
+    --text: #333;
+    --accent: #861629;       
+    --accent-dark: #420627;
+    --card: #ffffff;
+    --radius: 18px;
+    --shadow: 0 8px 20px rgba(0,0,0,0.08);
+    --font-body: "Poppins", sans-serif;
+  }
+  
+  body {
+    background: var(--bg);
+    font-family: var(--font-body);
+    color: var(--text);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    line-height: 1.75;
+  }
+  
+
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    letter-spacing: 1px;
+  }
+  
+
+  p {
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
+  }
+  
+
+  img {
+    width: 80%;             
+    max-width: 500px;       
+    height: auto;
+    display: block;         
+    margin: 3rem auto;       
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+  }
+  
+  
+  img:hover {
+    transform: scale(1.02);
+  }
+  
+
+  form {
+    background: var(--card);
+    padding: 1.8rem;            
+    margin: 3rem auto;         
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 400px;         
+  }
+  
+  
+
+  input[type="text"] {
+    padding: 1rem 1.2rem;
+    border: 2px solid #97e38a;
+    border-radius: var(--radius);
+    font-size: 1.1rem;
+    transition: 0.3s ease;
+  }
+  
+  input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(123, 18, 18, 0.2);
+  }
+  
+
+  button {
+    padding: 1rem 1.2rem;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+  }
+  
+  button:hover {
+    background: var(--accent-dark);
+    transform: translateY(-2px);
+  }
+  
+
+  
