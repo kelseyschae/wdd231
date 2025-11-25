@@ -17,12 +17,12 @@ function setAlerts(alerts) {
   alertsContainer.innerHTML = "";
   const html = alerts.map(alertTemplate);
   alertsContainer.insertAdjacentHTML("afterbegin", html.join(""));
-}
+} 
 
 function setVisitorCenters(centers) {
   const centersContainer = document.querySelector(".visitor ul");
   const html = centers.map(visitorCenterTemplate);
-  centersContainer.insertAdjacentHTML("afterbegin", html.join("")); 
+  centersContainer.insertAdjacentHTML("afterbegin", html.join(""));
 }
 
 function setActivities(activities) {
