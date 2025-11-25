@@ -18,7 +18,7 @@
       <h2>${product.name}</h2>
       <p>Price: $${product.price}</p>
       </div>
-      </section>`;
+      </section>`; 
   }
   
   function getProductDetails() {
@@ -35,6 +35,13 @@
     const element = document.querySelector(selector);
     // using insertAdjacentHTML allows us to insert the new markup at the bottom of main...without losing the title that was already in there.
     element.insertAdjacentHTML("beforeEnd", markup);
+    element.insertAdjacentHTML("afterEnd")
+    element.start 
+
+    get.URLSearchParams("drawn, URLlink")
+  
+
+    get.Search("stop")
   }
   
   getProductDetails();
