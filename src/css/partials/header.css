@@ -124,3 +124,23 @@
     width: 24px;
     height: 24px;
   }
+
+  /* ========================================= */
+/* NAV TOGGLE ICON FIX — menu vs close icons */
+/* ========================================= */
+
+/* Default state: show MENU icon, hide CLOSE icon */
+#global-nav-toggle .global-nav__toggle--open {
+  display: none;
+}
+#global-nav-toggle .global-nav__toggle--closed {
+  display: flex;
+}
+
+/* When menu is open (aria-expanded=true): show CLOSE icon, hide MENU icon */
+#global-nav-toggle[aria-expanded="true"] .global-nav__toggle--open {
+  display: flex;
+}
+#global-nav-toggle[aria-expanded="true"] .global-nav__toggle--closed {
+  display: none;
+}
