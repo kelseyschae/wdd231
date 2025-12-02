@@ -37,3 +37,15 @@
     line-height: 1.5;
     color: var(--bs-grey-2);
   } 
+
+.media-card img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+  }
+  
+  .media-card img:hover {
+    transform: scale(1.02);
+  }
