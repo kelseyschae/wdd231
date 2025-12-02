@@ -1,4 +1,5 @@
 import { parkInfoTemplate, footerTemplate } from "./templates.mjs";
+import enableNavigation from "./navigation.mjs";
 
 function setHeaderInfo(data) {
   // insert data into disclaimer section
@@ -12,7 +13,7 @@ function setHeaderInfo(data) {
   // use the template function above to set the rest of the park specific info in the header
   document.querySelector(".hero-banner__content").innerHTML =
     parkInfoTemplate(data);
-} 
+}
 
 function setFooter(data) {
   const footerEl = document.querySelector("#park-footer");
@@ -22,5 +23,6 @@ function setFooter(data) {
 export default function setHeaderFooter(parkData) {
   setHeaderInfo(parkData);
   setFooter(parkData);
+  enableNavigation();
 }
 
