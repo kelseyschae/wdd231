@@ -45,18 +45,18 @@ main > h1 {
   padding: 1rem;
 }
 
-/* Shown when JS adds .show */
+/* JS adds this when menu is opened */
 .global-nav.show {
   display: block;
 }
 
-/* Section heading (Explore This Park) */
+/* Heading: "Explore This Park" */
 .global-nav__section-heading {
   color: var(--bs-blue);
   margin-bottom: 1rem;
 }
 
-/* Category row */
+/* Parent menu items */
 .global-nav__split-button {
   display: flex;
   justify-content: space-between;
@@ -66,7 +66,7 @@ main > h1 {
   margin-bottom: 0.5rem;
 }
 
-/* Toggle button arrow */
+/* Toggle arrow buttons */
 .global-nav__split-button__toggle {
   background: transparent;
   border: none;
@@ -77,7 +77,7 @@ main > h1 {
   background-color: var(--bs-gray-700);
 }
 
-/* Submenu collapsed by default */
+/* Submenu hidden by default */
 .global-nav__submenu {
   max-height: 0;
   overflow: hidden;
@@ -88,7 +88,7 @@ main > h1 {
 
 /* Submenu when open */
 .global-nav__submenu.show {
-  max-height: 500px; /* Enough for 4 links */
+  max-height: 500px; /* Enough for 4 items */
 }
 
 /* Submenu links */
@@ -103,49 +103,58 @@ main > h1 {
   text-decoration: underline;
 }
 
-/* Arrow rotation */
+/* Rotate icon arrow */
 .icon.rotate {
   transform: rotate(180deg);
   transition: transform 0.3s ease;
 }
 
 /* ===========================
-   WIDE SCREEN GLOBAL NAV
+   DESKTOP (WIDE SCREEN) NAV
 =========================== */
 
 @media (min-width: 768px) {
-  /* Hide mobile-only elements */
-  .global-nav > h2,
-  .global-nav__list:first-of-type {
+
+  /* Hide heading on desktop */
+  .global-nav__section-heading {
     display: none;
   }
 
-  /* Show everything in columns */
-  .global-nav__submenu,
+  /* Desktop menu ALWAYS visible */
+  .global-nav {
+    display: block !important;
+    padding: 0;
+  }
+
+  /* Display parent menu categories side-by-side */
   .global-nav__list {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    gap: 2rem;
+    justify-content: space-between;
   }
 
-  /* Remove background on split-button */
+  /* Remove mobile block background */
   .global-nav__split-button {
-    background-color: inherit;
+    background: none;
+    padding: 0;
   }
 
-  /* Hide the arrow toggle buttons */
-  .global-nav__split-button > button {
+  /* Hide toggle buttons on desktop */
+  .global-nav__split-button__toggle {
     display: none;
   }
 
-  /* Submenus should always be visible */
+  /* Submenus always visible on desktop */
   .global-nav__submenu {
     display: flex;
     flex-direction: column;
-    max-height: fit-content;
+    max-height: fit-content !important;
+    overflow: visible;
+    padding-left: 0;
   }
 
   .global-nav__submenu a {
-    padding: 0.625rem;
+    padding: 0.625rem 0;
   }
 }
+
