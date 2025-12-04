@@ -146,33 +146,45 @@
 }
 
 /* Adjust for wide screens */
-
 @media (min-width: 768px) {
-  .global-nav > h2,
-  .global-nav__list:first-of-type {
+  /* Hide only the heading, NOT the list */
+  .global-nav > h2 {
     display: none;
   }
-  .global-nav__submenu,
+
+  /* On desktop, nav is always fully open */
+  .global-nav {
+    max-height: none;      /* stop clipping the content */
+    overflow: visible;
+  }
+
+  /* Lay out the top-level categories horizontally */
   .global-nav__list {
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
   }
+
   .global-nav__split-button {
     background-color: inherit;
   }
+
+  /* Hide the little arrow buttons on desktop */
   .global-nav__split-button > button {
     display: none;
   }
+
+  /* Submenus always visible and vertical */
   .global-nav__submenu {
     display: flex;
     flex-direction: column;
-    max-height: fit-content;
+    max-height: none;      /* no accordion behavior on desktop */
   }
+
   .global-nav__submenu a {
     padding: 0.625rem;
   }
 }
+
 
 /* styles to control opening and closing of menus */
 
