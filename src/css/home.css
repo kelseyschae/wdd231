@@ -39,13 +39,13 @@ main > h1 {
 /* Hidden by default */
 .global-nav {
   display: none;
-  background-color: var(--bs-gray-900);
+  background-color: #1a1a1a; /* darker for visibility */
   color: white;
   width: 100%;
   padding: 1rem;
 }
 
-/* JS adds this when menu is opened */
+/* Shown when JS adds .show */
 .global-nav.show {
   display: block;
 }
@@ -56,17 +56,18 @@ main > h1 {
   margin-bottom: 1rem;
 }
 
-/* Parent menu items */
+/* Parent menu category buttons */
 .global-nav__split-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--bs-gray-800);
+  background-color: #2b2b2b;
   padding: 0.75rem 1rem;
   margin-bottom: 0.5rem;
+  border-radius: 4px;
 }
 
-/* Toggle arrow buttons */
+/* Arrow button */
 .global-nav__split-button__toggle {
   background: transparent;
   border: none;
@@ -74,39 +75,52 @@ main > h1 {
 }
 
 .global-nav__split-button__toggle:hover {
-  background-color: var(--bs-gray-700);
+  background-color: #3a3a3a;
 }
 
-/* Submenu hidden by default */
+/* Collapsed submenu (closed) */
 .global-nav__submenu {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
-  background-color: var(--bs-gray-900);
+  transition: max-height 0.35s ease;
+  background-color: #1a1a1a;
   padding-left: 1rem;
+  border-left: 2px solid #444;
 }
 
-/* Submenu when open */
+/* Expanded submenu (open) */
 .global-nav__submenu.show {
-  max-height: 500px; /* Enough for 4 items */
+  max-height: 600px;
 }
 
 /* Submenu links */
 .global-nav__submenu li a {
   display: block;
-  padding: 0.5rem 0;
+  padding: 0.75rem 0;
   color: white;
   text-decoration: none;
+  font-size: 0.95rem;
 }
 
 .global-nav__submenu li a:hover {
   text-decoration: underline;
 }
 
-/* Rotate icon arrow */
+/* Arrow rotates when submenu opens */
 .icon.rotate {
   transform: rotate(180deg);
   transition: transform 0.3s ease;
+}
+
+/* Force mobile accordion behavior only on small screens */
+@media (max-width: 767px) {
+  .global-nav__submenu {
+    max-height: 0 !important;
+    overflow: hidden;
+  }
+  .global-nav__submenu.show {
+    max-height: 600px !important;
+  }
 }
 
 /* ===========================
@@ -124,37 +138,41 @@ main > h1 {
   .global-nav {
     display: block !important;
     padding: 0;
+    background-color: transparent;
   }
 
-  /* Display parent menu categories side-by-side */
+  /* Layout: categories side-by-side */
   .global-nav__list {
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
     justify-content: space-between;
   }
 
-  /* Remove mobile block background */
+  /* Remove mobile styling */
   .global-nav__split-button {
     background: none;
     padding: 0;
   }
 
-  /* Hide toggle buttons on desktop */
+  /* Hide toggle arrows on desktop */
   .global-nav__split-button__toggle {
     display: none;
   }
 
-  /* Submenus always visible on desktop */
+  /* Submenus ALWAYS visible on desktop */
   .global-nav__submenu {
     display: flex;
     flex-direction: column;
-    max-height: fit-content !important;
+    max-height: none !important;
     overflow: visible;
     padding-left: 0;
+    border-left: none;
   }
 
+  /* Desktop link spacing */
   .global-nav__submenu a {
-    padding: 0.625rem 0;
+    padding: 0.5rem 0;
   }
 }
+
 
