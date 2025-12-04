@@ -1,6 +1,4 @@
-/* ===========================
-   LOGO + HEADER LAYOUT
-=========================== */
+/* Title and logo styling */
 
 .site-title {
   display: flex;
@@ -21,18 +19,28 @@
   border-right: 13px solid transparent;
 }
 
+/* Global navbar styling */
+
 .global-header {
   background-color: var(--bs-black);
   color: white;
   display: grid;
   grid-template-columns: auto 200px;
   justify-content: space-between;
+  /* padding: 0.3em 1rem; */
   fill: white;
 }
 
-.global-header a {
+.global-header a:link,
+.global-header a:visited,
+#park-header a:link,
+#park-header a:visited {
   color: white;
   text-decoration: none;
+}
+.global-header .icon {
+  width: 20px;
+  height: 20px;
 }
 
 .global-header__right {
@@ -40,14 +48,12 @@
   align-items: center;
   justify-content: flex-end;
 }
-
 .global-header__right .search-icon {
   padding: 0 1rem;
   margin-top: 6px;
 }
-
 .global-header__right button {
-  background: transparent;
+  background-color: transparent;
   border: none;
   color: white;
   font-size: 1rem;
@@ -59,31 +65,39 @@
   border-left: 1px solid var(--bs-grey-5);
 }
 
-/* ===========================
-   GLOBAL NAV (MOBILE FIRST)
-=========================== */
+/* Global nav styles */
 
 .global-nav {
   width: 100%;
-  grid-column: 1 / 3;
+  grid-column: 1/3;
   border-top: 1px solid #333;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease;
-  background: var(--bs-gray-900);
-  color: white;
+  transition: all 0.5s;
 }
 
-/* When JS toggles menu open */
-.global-nav.show {
-  max-height: 1000px;
+.global-nav button {
+  background-color: transparent;
+  border: 0;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.global-nav svg {
+  --icon-color: white;
 }
 
 .global-nav__section-heading {
-  padding: 1rem;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 1rem 0.625rem;
   font-size: 1.25rem;
+}
+.section-heading--green {
   color: var(--bs-light-green);
+}
+.section-heading--blue {
+  color: var(--bs-chathams-blue-3);
 }
 
 .global-nav__list {
@@ -92,73 +106,80 @@
   margin: 0;
   border-top: 1px solid #444;
 }
-
 .global-nav__split-button {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--bs-gray-800);
+  background-color: var(--bs-gray-800);
 }
-
 .global-nav__split-button > a {
   flex: 1;
-  padding: 1rem;
+  align-self: center;
+  padding: 1rem 0.625rem;
+  display: block;
 }
-
 .global-nav__split-button > button {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem 1.25rem;
   border-left: 1px solid #444;
-  background: transparent;
-  cursor: pointer;
 }
-
 .global-nav__split-button > button:hover,
 .global-nav__split-button > a:hover {
-  background: var(--bs-gray-900);
+  background-color: var(--bs-gray-900);
 }
 
-/* Submenus (mobile collapsed) */
 .global-nav__submenu {
   list-style: none;
-  padding-left: 1rem;
-  margin: 0;
-  max-height: 0;
+  padding: 0;
+  font-size: 0.8em;
   overflow: hidden;
-  background: var(--bs-gray-900);
-  transition: max-height 0.3s ease;
-}
-
-.global-nav__submenu.show {
-  max-height: 400px;
+  max-height: 0;
+  transition: all 0.3s;
 }
 
 .global-nav__submenu a {
   display: block;
-  padding: 0.75rem 0;
-  color: white;
+  padding: 1rem 0.625rem;
+}
+.global-nav__submenu a:hover {
+  text-decoration: underline;
 }
 
-/* Arrow rotate animation */
-.global-nav__split-button .icon {
-  transition: transform 0.3s ease;
+/* Adjust for wide screens */
+
+@media (min-width: 768px) {
+  .global-nav > h2,
+  .global-nav__list:first-of-type {
+    display: none;
+  }
+  .global-nav__submenu,
+  .global-nav__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .global-nav__split-button {
+    background-color: inherit;
+  }
+  .global-nav__split-button > button {
+    display: none;
+  }
+  .global-nav__submenu {
+    display: flex;
+    flex-direction: column;
+    max-height: fit-content;
+  }
+  .global-nav__submenu a {
+    padding: 0.625rem;
+  }
 }
 
-.icon.rotate {
-  transform: rotate(180deg);
-}
-
-/* ===========================
-   MENU BUTTON STATES
-=========================== */
+/* styles to control opening and closing of menus */
 
 .global-nav__toggle--closed {
   display: flex;
   align-items: center;
 }
-
 .global-nav__toggle--open {
   display: none;
   align-items: center;
@@ -167,67 +188,20 @@
 .global-nav__toggle[aria-expanded="true"] > .global-nav__toggle--closed {
   display: none;
 }
-
 .global-nav__toggle[aria-expanded="true"] > .global-nav__toggle--open {
   display: flex;
 }
 
-/* ===========================
-   DESKTOP NAVIGATION
-=========================== */
-
-@media (min-width: 768px) {
-
-  /* Hide heading, keep menu visible */
-  .global-nav__section-heading {
-    display: none;
-  }
-
-  /* Desktop nav is always fully shown */
-  .global-nav {
-    max-height: none !important;
-    overflow: visible;
-    padding: 1rem 2rem;
-  }
-
-  /* Place categories horizontally */
-  .global-nav__list {
-    display: flex;
-    gap: 3rem;
-    border-top: none;
-  }
-
-  /* Category headers should not have mobile backgrounds */
-  .global-nav__split-button {
-    background: none;
-    padding: 0;
-    display: block;
-  }
-
-  /* Remove mobile arrow toggles */
-  .global-nav__split-button__toggle {
-    display: none !important;
-  }
-
-  /* Submenus always visible */
-  .global-nav__submenu {
-    max-height: none !important;
-    overflow: visible;
-    padding-left: 0;
-    display: flex !important;
-    flex-direction: column;
-    margin-top: 0.5rem;
-  }
-
-  .global-nav__submenu a {
-    padding: 0.25rem 0;
-  }
+.global-nav__split-button .icon {
+  transition: all 0.3s;
 }
 
-/* ===========================
-   PARK NAV + HERO (unchanged)
-=========================== */
+.global-nav.show,
+.global-nav__submenu.show {
+  max-height: 1000px;
+}
 
+/* Hero banner */
 .hero-banner {
   display: grid;
   grid-template-columns: 1fr;
@@ -236,20 +210,32 @@
   width: 100%;
   height: 350px;
   object-fit: cover;
-  grid-column: 1 / 2;
-  grid-row: 1 / 3;
+  grid-column: 1/2;
+  grid-row: 1/3;
 }
 
 .hero-banner__content {
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
+  grid-column: 1/2;
+  grid-row: 2/3;
   display: flex;
   align-items: center;
   gap: 1em;
   padding: 0.5em 1em;
 }
+
+.hero-banner__title {
+  font-size: 1.8em;
+}
+
+.hero-banner__subtitle {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+}
+
+/* Park nav styling */
 
 .park-nav > ul {
   list-style: none;
@@ -257,18 +243,22 @@
   margin: 0;
   display: flex;
   justify-content: center;
-  background: var(--bs-black);
+  /* gap: 3rem; */
+  background-color: var(--bs-black);
   font-size: 0.8rem;
 }
-
 .park-nav a {
-  padding: 0.8em 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* height: 50px; */
+  padding: 0.8em 2em;
 }
-
 .park-nav a:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.3);
 }
+.park-nav svg {
+  width: 24px;
+  height: 24px;
+} 
