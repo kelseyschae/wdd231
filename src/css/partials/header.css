@@ -151,11 +151,11 @@
   .global-nav > h2 {
     display: none;
   }
-
-  /* On desktop, nav is always fully open */
-  .global-nav {
-    max-height: none;      /* stop clipping the content */
-    overflow: visible;
+/* On desktop, KEEP accordion open for submenus, 
+   BUT DO NOT force the main menu open */
+   .global-nav {
+    padding: 1rem 2rem;
+    /* do NOT modify max-height here */
   }
 
   /* Lay out the top-level categories horizontally */
